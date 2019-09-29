@@ -4,7 +4,7 @@ resource "random_string" "dbServerPassword" {
 }
 
 resource "azurerm_sql_server" "sqlserver" {
-  name                         = "${var.name}"
+  name                         = "${lower(var.name)}"
   resource_group_name          = "${var.rg_name}"
   location                     = "${var.location}"
   version                      = "12.0"
@@ -14,7 +14,7 @@ resource "azurerm_sql_server" "sqlserver" {
 
 resource "azurerm_sql_database" "test" {
   count               = "${length(var.databases)}"
-  name                = "${element(keys(var.databases), count.index)}"
+  name                = "${element(var.databases, count.index)}"
   resource_group_name = "${var.rg_name}"
   location            = "${var.location}"
   server_name         = "${var.name}"
