@@ -1,8 +1,12 @@
-variable "name" {}
-variable "rg_name" {}
-variable "location" {}
-variable "tenant_id" {}
-variable "sql_admin_group_object_id" {}
+variable "name" {
+  description = "SQL Server resource name."
+}
+variable "rg_name" {
+  description = "Resource Group name."
+}
+variable "location" {
+  description = "SQL Server resource location."
+}
 variable "databases" {
   default = []
 }
