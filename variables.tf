@@ -8,5 +8,6 @@ variable "location" {
   description = "SQL Server resource location."
 }
 variable "databases" {
-  default = []
+  description = "A map of database names and editions."
+  default     = {}
 }
