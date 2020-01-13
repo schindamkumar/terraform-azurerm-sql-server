@@ -17,6 +17,6 @@ resource "azurerm_sql_database" "sqldatabase" {
   name                = element(keys(var.databases), count.index)
   resource_group_name = var.rg_name
   location            = var.location
-  server_name         = var.name
+  server_name         = lower(var.name)
   edition             = element(values(var.databases), count.index)
 }
