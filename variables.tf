@@ -11,3 +11,12 @@ variable "databases" {
   description = "A map of database names and editions."
   default     = {}
 }
+variable "firewall_rules" {
+  description = "Range of IP addresses to allow connections."
+  type = list(object({
+    name             = string
+    start_ip_address = string
+    end_ip_address   = string
+  }))
+  default = []
+}

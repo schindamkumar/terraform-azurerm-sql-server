@@ -20,3 +20,12 @@ resource "azurerm_sql_database" "sqldatabase" {
   server_name         = lower(var.name)
   edition             = element(values(var.databases), count.index)
 }
+
+resource "azurerm_sql_firewall_rule" "sqlserver_firewall_rule" {
+  count               = length(var.firewall_rules)
+  name                = element(var.firewall_rules, count.index).name
+  resource_group_name = var.rg_name
+  server_name         = azurerm_sql_server.sqlserver.name
+  start_ip_address    = element(var.firewall_rules, count.index).start_ip_address
+  end_ip_address      = element(var.firewall_rules, count.index).end_ip_address
+}
