@@ -4,6 +4,18 @@ variable "name" {
 variable "rg_name" {
   description = "Resource Group name."
 }
+variable "subscription_id" {
+  description = ""
+}
+variable "clientId" {
+  description = ""
+}
+variable "client_secret" {
+  description = ""
+}
+variable "tenantId" {
+  description = ""
+}
 variable "location" {
   description = "SQL Server resource location."
 }
