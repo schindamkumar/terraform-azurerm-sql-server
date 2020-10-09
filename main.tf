@@ -26,7 +26,7 @@ resource "azurerm_sql_database" "sqldatabase" {
   resource_group_name = var.rg_name
   location            = var.location
   server_name         = lower(var.name)
-  edition             = "12.0"
+  edition             = "Basic"
 }
 
 resource "azurerm_sql_firewall_rule" "sqlserver_firewall_rule" {
