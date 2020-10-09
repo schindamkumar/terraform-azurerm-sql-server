@@ -22,12 +22,11 @@ resource "azurerm_sql_server" "sqlserver" {
 }
 
 resource "azurerm_sql_database" "sqldatabase" {
-  count               = length(keys(var.databases))
-  name                = element(keys(var.databases), count.index)
+  name                = var.databases
   resource_group_name = var.rg_name
   location            = var.location
   server_name         = lower(var.name)
-  edition             = element(values(var.databases), count.index)
+  edition             = "12.0"
 }
 
 resource "azurerm_sql_firewall_rule" "sqlserver_firewall_rule" {
