@@ -25,7 +25,7 @@ resource "azurerm_sql_database" "sqldatabase" {
   name                = var.databases
   resource_group_name = var.rg_name
   location            = var.location
-  server_name         = lower(var.name)
+  server_name         = azurerm_sql_server.sqlserver.name
   edition             = "Basic"
 }
 
