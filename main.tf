@@ -1,6 +1,11 @@
 provider "azurerm" {
   # whilst the `version` attribute is optional, we recommend pinning to a given version of the Provider
   features {}
+  subscription_id = var.subscription
+  client_id       = var.clientId
+  client_secret   = var.client_secret
+  tenant_id       = var.tenantId
+
 } 
 resource "random_string" "dbServerPassword" {
   length  = 24
