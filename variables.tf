@@ -21,7 +21,6 @@ variable "location" {
 }
 variable "databases" {
   description = "A map of database names and editions."
-  default     = {}
 }
 variable "firewall_rules" {
   description = "Range of IP addresses to allow connections."
