@@ -1,3 +1,7 @@
+provider "azurerm" {
+  # whilst the `version` attribute is optional, we recommend pinning to a given version of the Provider
+  features {}
+} 
 resource "random_string" "dbServerPassword" {
   length  = 24
   special = false
